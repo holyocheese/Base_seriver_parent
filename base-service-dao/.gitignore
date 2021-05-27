@@ -1,0 +1,13 @@
+/target/
+*.settings
+*.classpath
+*.project
+*ls.exe.stackdump
+*.class
+*.jar
+*.bak
+*.log
+*.metadata
+*.iml
+.idea/
+test/
