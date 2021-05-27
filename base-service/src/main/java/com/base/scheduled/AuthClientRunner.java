@@ -40,14 +40,15 @@ public class AuthClientRunner implements CommandLineRunner {
             log.error("初始化加载客户pubKey失败,1分钟后自动重试!",e);
         }
     }
+    //不校验
     @Scheduled(cron = "0 0/1 * * * ?")
     public void refreshUserPubKey() throws Exception{
-    	authClientService.validate(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
+    	//authClientService.validate(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
     	this.userAuthConfig.setPubKeyByte(keyConfiguration.getUserPubKey()); 
     }
     @Scheduled(cron = "0 0/1 * * * ?")
     public void refreshServicePubKey() throws Exception{
-    	authClientService.validate(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
+    	//authClientService.validate(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
         this.serviceAuthConfig.setPubKeyByte(keyConfiguration.getServicePubKey());
     }
 

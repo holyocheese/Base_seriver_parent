@@ -40,11 +40,12 @@ public class ServiceAuthRestInterceptor extends HandlerInterceptorAdapter {
         String token = request.getHeader(serviceAuthConfig.getTokenHeader());
         IJWTInfo infoFromToken = serviceAuthUtil.getInfoFromToken(token);
         String uniqueName = infoFromToken.getUniqueName();
-        for(String client:serviceAuthUtil.getAllowedClient()){
-            if(client.equals(uniqueName)){
-                return super.preHandle(request, response, handler);
-            }
-        }
-        throw new ClientForbiddenException("Client is Forbidden!");
+//        for(String client:serviceAuthUtil.getAllowedClient()){
+//            if(client.equals(uniqueName)){
+//                return super.preHandle(request, response, handler);
+//            }
+//        }
+//        throw new ClientForbiddenException("Client is Forbidden!");
+        return super.preHandle(request, response, handler);
     }
 }

@@ -86,7 +86,7 @@ public class DBAuthClientService implements AuthClientService {
     }
 
     @Override
-    @Scheduled(cron = "0 0/1 * * * ?")
+    //@Scheduled(cron = "0 0/1 * * * ?")
     public void registryClient() {
         // 自动注册节点
         discovery.getServices().forEach((name) ->{

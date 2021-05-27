@@ -43,12 +43,12 @@ public class ServiceAuthUtil {
         }
     }
 
-    @Scheduled(cron = "0/30 * * * * ?")
+    //@Scheduled(cron = "0/30 * * * * ?")
     public void refreshAllowedClient() {
     	this.allowedClient = serviceAuthFeign.getAllowedClient(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
     }
 
-    @Scheduled(cron = "0 0/10 * * * ?")
+    //@Scheduled(cron = "0 0/10 * * * ?")
     public void refreshClientToken() throws Exception {
     	this.clientToken  = serviceAuthFeign.apply(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
     }
